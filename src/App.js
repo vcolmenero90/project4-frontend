@@ -1,28 +1,28 @@
 import { useState, useEffect } from 'react';
-import Aside from './components/Wish';
+import MakeWish from './components/MakeWish';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
-import Nav from './components/Story';
+import GrantedWishes from './components/GrantedWishes';
 
 function App() {
-    const [noticesState, setNoticesState] = useState({ notices: [] });
+    const [wishesState, setWishesState] = useState({ wishes: [] });
     
     useEffect(() => {
-      getNotices();
+      getWishes();
     }, []);
 
-    function getNotices() {
-      fetch('/notices')
+    function getWishes() {
+      fetch('/wishes')
       .then(res => res.json())
-      .then(data => setNoticesState({ notices: data }))
+      .then(data => setWishesState({ wishes: data }))
       .catch(error => console.log(error));
     }
 
 
     function handleAdd(event, formInputs) {
       event.preventDefault()
-      fetch('/notices', {
+      fetch('/wishes', {
         body: JSON.stringify(formInputs),
         method: 'POST',
         headers: {
@@ -32,25 +32,25 @@ function App() {
       })
       .then(res => res.json())
       .then(data => { 
-        setNoticesState(prevState => ({  
-          notices: [data, ...prevState.notices] 
+        setWishesState(prevState => ({  
+          wishes: [data, ...prevState.wishes] 
         }))
       })
       .catch(error => console.log(error))
     }
 
-    function handleDelete(deletedNotice) {
-      fetch(`/notices/${deletedNotice.id}`, {
+    function handleDelete(deletedWish) {
+      fetch(`/wishes/${deletedWish.id}`, {
         method: 'DELETE',
       }).then(() => {
-        getNotices();
+        getWishes();
       })
       .catch(error => console.log(error));
     }
 
     function handleUpdate(event, formInputs) {
       event.preventDefault();
-      fetch(`/notices/${formInputs.id}`, {
+      fetch(`/wishes/${formInputs.id}`, {
         method: 'PUT',
         body: JSON.stringify(formInputs),
         headers: {
@@ -58,7 +58,7 @@ function App() {
         }
       })
       .then(() => {
-        getNotices()
+        getWishes()
       })
       .catch(error => console.log(error))
     }
@@ -67,13 +67,13 @@ function App() {
       <div className="App">
         <div className='container'>
           <Header />
-          <Aside handleSubmit={handleAdd} />
+          <MakeWish handleSubmit={handleAdd} />
           <Main 
-            notices={noticesState.notices}
+            wishes={wishesState.wishes}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
-          <Nav />
+          <GrantedWishes />
           <Footer />
         </div>
       </div>

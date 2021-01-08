@@ -30,7 +30,7 @@ export default function Wish(props) {
             <button onClick={toggleForm}>Edit This Wish</button>
             <button >Grant This Wish</button>
           </div>
-      }
+      } 
       </>
     );
 }
