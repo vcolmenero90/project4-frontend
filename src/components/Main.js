@@ -1,10 +1,10 @@
-import Notices from './Notices.js';
+import Wishes from './Wishes.js';
 
-function Main({ notices, handleDelete, handleUpdate }) {
+function Main({ wishes, handleDelete, handleUpdate }) {
     return (
       <main>
-        <Notices 
-          notices={notices} 
+        <Wishes 
+          wishes={wishes} 
           handleDelete={handleDelete} 
           handleUpdate={handleUpdate} 
         />
