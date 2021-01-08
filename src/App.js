@@ -22,7 +22,7 @@ function App() {
 
     function handleAdd(event, formInputs) {
       event.preventDefault()
-      fetch('/wishes', {
+      fetch('https://wishing-well-app-api.herokuapp.com/wishes', {
         body: JSON.stringify(formInputs),
         method: 'POST',
         headers: {
@@ -40,7 +40,7 @@ function App() {
     }
 
     function handleDelete(deletedWish) {
-      fetch(`/wishes/${deletedWish.id}`, {
+      fetch(`https://wishing-well-app-api.herokuapp.com/wishes/${deletedWish.id}`, {
         method: 'DELETE',
       }).then(() => {
         getWishes();
@@ -50,7 +50,7 @@ function App() {
 
     function handleUpdate(event, formInputs) {
       event.preventDefault();
-      fetch(`/wishes/${formInputs.id}`, {
+      fetch(`https://wishing-well-app-api.herokuapp.com/wishes/${formInputs.id}`, {
         method: 'PUT',
         body: JSON.stringify(formInputs),
         headers: {
