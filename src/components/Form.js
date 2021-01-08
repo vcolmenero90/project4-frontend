@@ -13,7 +13,7 @@ function Form(props) {
           content: props.wish.content,
           name: props.wish.name,
           id: props.wish.id
-        })
+        }) 
       }
     }, [props.wish]);
 
