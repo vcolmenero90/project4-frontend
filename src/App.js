@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import MakeWish from './components/MakeWish';
+import Aside from './components/Wish';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
-import GrantedWishes from './components/GrantedWishes';
+import Nav from './components/Story';
 
 function App() {
     const [noticesState, setNoticesState] = useState({ notices: [] });
@@ -67,13 +67,13 @@ function App() {
       <div className="App">
         <div className='container'>
           <Header />
-          <MakeWish handleSubmit={handleAdd} />
+          <Aside handleSubmit={handleAdd} />
           <Main 
             notices={noticesState.notices}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
-          <GrantedWishes />
+          <Nav />
           <Footer />
         </div>
       </div>
