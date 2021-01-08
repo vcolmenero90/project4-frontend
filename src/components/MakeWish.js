@@ -1,6 +1,9 @@
 import Form from './Form.js';
 
+
 function Wish(props) {
+=======
+function MakeWish(props) {
     return (
       <aside>
         <h1>Make A Wish</h1>
@@ -9,4 +12,8 @@ function Wish(props) {
     );
 }
 
+
 export default Wish;
+=======
+export default MakeWish; 
+
