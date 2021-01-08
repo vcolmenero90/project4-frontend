@@ -9,7 +9,7 @@ function Form(props) {
 
     useEffect(() => {
       if(props.wish) {
-        setFormState({
+        setFormState({ 
           content: props.wish.content,
           name: props.wish.name,
           id: props.wish.id
