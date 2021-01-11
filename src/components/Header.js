@@ -1,8 +1,20 @@
+import logo from './images/wishing_well.png'
+import rwing from './images/right_wing.png'
+import lwing from './images/left_wing.png'
+
 function Header(props) {
     return (
-      <header>
-        <h1>Wishing Well</h1>
-      </header>
+        <div className="logorow">
+          <div className="logo">
+            <img src={lwing} alt="lwing"  />
+          </div>
+          <div className="logo">
+            <img src={logo} alt="wishing_well_logo"  />
+          </div>
+          <div className="logo">
+            <img src={rwing} alt="rwing" />
+          </div>
+        </div>
     );
 }
 
