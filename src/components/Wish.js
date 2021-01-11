@@ -26,9 +26,11 @@ export default function Wish(props) {
         : <div className="wish">
             <h3>{props.wish.content}</h3>
             <p>{props.wish.name}</p>
-            <button onClick={() => props.handleDelete(props.wish)}>X</button>
-            <button onClick={toggleForm}>Edit This Wish</button>
-            <button >Grant This Wish</button>
+
+            <button className='wish-x' onClick={() => props.handleDelete(props.wish)}>X</button>
+            <button className='wish-edit' onClick={toggleForm}>Edit This Wish</button>
+            <button className='wish-grant' >Grant This Wish</button>
+            <hr/>
           </div>
       } 
       </>
