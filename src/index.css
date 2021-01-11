@@ -32,8 +32,8 @@ header {
 .logorow {
   display: flex;
   width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .logo {
