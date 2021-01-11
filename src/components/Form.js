@@ -28,7 +28,11 @@ function Form(props) {
     event.preventDefault();
     if(props.wish) formState.id = props.wish.id
     props.handleSubmit(event, formState);
+    formState.content = "";
+    formState.name = "";
   }
+
+  
     return (
       <form onSubmit={handleSubmit}>
         <Input
