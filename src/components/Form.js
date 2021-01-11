@@ -9,11 +9,11 @@ function Form(props) {
 
     useEffect(() => {
       if(props.wish) {
-        setFormState({
+        setFormState({ 
           content: props.wish.content,
           name: props.wish.name,
           id: props.wish.id
-        })
+        }) 
       }
     }, [props.wish]);
 
@@ -28,7 +28,11 @@ function Form(props) {
     event.preventDefault();
     if(props.wish) formState.id = props.wish.id
     props.handleSubmit(event, formState);
+    formState.content = "";
+    formState.name = "";
   }
+
+  
     return (
       <form onSubmit={handleSubmit}>
         <Input
